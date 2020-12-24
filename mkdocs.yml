@@ -1,0 +1,6 @@
+site_name: My Docs-Inga
+nav:
+        - Home: index.md
+        - About: page1.md
+        - About 2: page2.md
+theme: readthedocs
