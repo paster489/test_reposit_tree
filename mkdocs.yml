@@ -1,6 +1,20 @@
-site_name: My Docs-Inga
+site_name: HPC Slurm (Rev.0)
 nav:
-        - Home: index.md
-        - About: page1.md
-        - About 2: page2.md
+        - Overview: index.md
+        - Getting Started: get_started.md
+        - SBatch: sbatch.md
+        - Commands: commands.md
+        - FAQ: faq.md
 theme: readthedocs
+extra_css:
+  - 'stylesheets/extra.css'
+
+markdown_extensions:
+  - pymdownx.critic:
+      mode: view
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
