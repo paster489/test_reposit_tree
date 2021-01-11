@@ -1,8 +1,13 @@
 # Overview
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+For full documentation visit [slurm workload manager](https://slurm.schedmd.com/quickstart.html).
+
+
+![Screenshot](slurm_diagram.png)
+
 
 ## Overview
+
 
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.

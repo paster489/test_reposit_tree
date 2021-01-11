@@ -1,7 +1,10 @@
 # Getting Started
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-![Screenshot](inga_picture.png)
+For full documentation visit [slurm workload manager](https://slurm.schedmd.com/quickstart.html).
+![Screenshot](inga_picture.png) # add picture
+
+
+home
 ## Connect to SLURM
 
 * `mkdocs new [dir-name]` - Create a new project.
