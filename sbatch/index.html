@@ -65,8 +65,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#submit-job">Submit Job</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#check-status-of-job">Check Status of Job</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#cancel-job">Cancel Job</a>
     </li>
     </ul>
@@ -113,82 +111,38 @@
             <div class="section">
               
                 <h1 id="sbatch">SBatch</h1>
-<p>theme:
-  name: TTT
-  palette:
-    primary: indigo
-For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<p><span style="color:purple">#SBATCH</span> - Bash "sees" this as comment.<br/>
+  <span style="color:purple">#SBATCH</span> - Bash "sees" this as comment.<br/>
+  <span style="color:purple">#SBATCH</span> - Slurm "takes" them as parameter.<br/>
+  Use ## to close <span style="color:purple">#SBATCH</span> as comment.<br/></p>
 <h2 id="example-of-sbatch-script">Example of SBatch Script</h2>
-<pre><code>#!/bin/bash     
-# SBATCH --partition TBD          ## specify partition name where to run a job.
-# SBATCH --time 12:00:00          ## limit the time of job running. Format: D-H:MM:SS
-#SBATCH --job-name my_job         ## name of the job. replace my_job with your desired
-                                  ## job name
-#SBATCH --output my_job-id-%J.out ## output log for running job - %J is the job number
-                                  ## variable
-#SBATCH --gres=gpu:1              ## number of GPUs
-module load anaconda              ## load anaconda module
-source activate my_env            ## activating environment
-jupyter lab                       ## execute jupyter lab command
-
-Roses are &lt;span style="color:red"&gt;red&lt;/span&gt;
-Roses are &lt;span style="color:blue;"&gt;red&lt;/span&gt;
-
-```
-python
-def fn():
-  pass
-```
-- == This ==
---this--
-++added++
-~~one~~
-</code></pre>
+<p><img alt="Screenshot" src="../sbatch_example.png" /></p>
+<h2 id="flags-description">Flags Description</h2>
 <table>
 <thead>
 <tr>
-<th align="left">First Header</th>
-<th align="center">Second Header</th>
-<th align="right">Third Header</th>
+<th><strong>Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></th>
+<th><strong>Description</strong></th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Content Cell</td>
-<td align="center">Content Cell</td>
-<td align="right">Content Cell</td>
-</tr>
-<tr>
-<td align="left">Content Cell</td>
-<td align="center">Content Cell</td>
-<td align="right">Content Cell</td>
+<td>--some-option</td>
+<td>This is a command parameter</td>
+<td>default value</td>
 </tr>
 </tbody>
 </table>
-<h2 id="flags-description">Flags Description</h2>
-<pre><code>  mkdocs.yml    # The configuration file.
-  docs/
-  index.md  # The documentation homepage.
-  ...       # Other markdown pages, images and other files.
-</code></pre>
+<p><br/>
+<img alt="Screenshot" src="../sbatch_options.png" /></p>
 <h2 id="submit-job">Submit Job</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
-<h2 id="check-status-of-job">Check Status of Job</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ sbatch ./submit.sh
+$ sbatch --qos=name ./submit.sh
+</code></pre></div>
 <h2 id="cancel-job">Cancel Job</h2>
-<pre><code>  mkdocs.yml    # The configuration file.
-  docs/
-  index.md  # The documentation homepage.
-  ...       # Other markdown pages, images and other files.
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ cancel &lt;job-id&gt;
+</code></pre></div>
               
             </div>
           </div>
