@@ -1,10 +1,16 @@
 site_name: HPC Slurm (Rev.0)
 nav:
         - Overview: index.md
-        - Getting Started: get_started.md
+        - Connection to HPC Slurm: get_started.md
         - SBatch: sbatch.md
+        - SRun: srun.md
         - Commands: commands.md
+        - Jupyter: jupyter.md
+        - pyCharm: pyCharm.md
+        - Matlab: matlab.md
+        - Conda Environment: conda_env.md
         - FAQ: faq.md
+        - Contact: contact.md
 theme:
   name: 'readthedocs'
   favicon: 'img/favicon.ico'
