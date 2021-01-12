@@ -51,15 +51,15 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href=".">Overview</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview_1">Overview</a>
+    <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hpc-cluster">HPC Cluster</a>
+    <li class="toctree-l2"><a class="reference internal" href="#hpc-slurm-cluster">HPC Slurm Cluster</a>
     </li>
     </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="get_started/">Getting Started</a>
+                    <li class="toctree-l1"><a class="reference internal" href="get_started/">Connection to HPC Slurm</a>
                     </li>
                 </ul>
                 <ul>
@@ -67,11 +67,35 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="srun/">SRun</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="commands/">Commands</a>
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="jupyter/">Jupyter</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="pyCharm/">pyCharm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="matlab/">Matlab</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="conda_env/">Conda Environment</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="contact/">Contact</a>
                     </li>
                 </ul>
       </div>
@@ -107,21 +131,23 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>For full documentation visit <a href="https://slurm.schedmd.com/quickstart.html">slurm workload manager</a>.</p>
-<p><img alt="Screenshot" src="slurm_diagram.png" /></p>
-<h2 id="overview_1">Overview</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>Slurm - Simple Linux Utility for Resource Management.  </li>
+<li>It  is the job scheduler and resource manager which optimize the situations when there is more works than resources, set up the environment for parallel and distributed computing.</li>
+<li>Development started in 2002 at Lawrence Livermore National.  </li>
+<li>Runs 60% of TOP500 systems.</li>
 </ul>
-<h2 id="hpc-cluster">HPC Cluster</h2>
-<div class="highlight"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h2 id="architecture">Architecture</h2>
+<ul>
+<li>Central controller daemon - <strong>slurmctld</strong> - it runs only in the "Controller Node" and is responsible for allocating resource to different jobs and also scheduling them.</li>
+<li>Database daemon - <strong>slurmdbd</strong> - it runs on the compute nodes and waits to execute work issued by slurmctld.</li>
+<li>Compute node daemon - <strong>slurmd</strong> - is the Slurm database and runs only on a single node. It is responsible for account recording information for the multiple Slurm-managed clusters in single database.</li>
+</ul>
+<p><img alt="Screenshot" src="img/slurm_diagram.png" /><br />
+<br/>
+For full documentation visit <a href="https://slurm.schedmd.com/quickstart.html">slurm workload manager</a>.</p>
+<h2 id="hpc-slurm-cluster">HPC Slurm Cluster</h2>
+<p><ins>TBD</ins></p>
               
             </div>
           </div>
@@ -129,7 +155,7 @@ docs/
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="get_started/" class="btn btn-neutral float-right" title="Getting Started">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="get_started/" class="btn btn-neutral float-right" title="Connection to HPC Slurm">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -175,5 +201,5 @@ docs/
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-01-11 12:15:38.936327+00:00
+Build Date UTC : 2021-01-12 14:03:22.437760+00:00
 -->

@@ -53,7 +53,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../get_started/">Getting Started</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../get_started/">Connection to HPC Slurm</a>
                     </li>
                 </ul>
                 <ul>
@@ -61,11 +61,37 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../srun/">SRun</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../commands/">Commands</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pyCharm/">pyCharm</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../matlab/">Matlab</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../conda_env/">Conda Environment</a>
                     </li>
                 </ul>
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">FAQ</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contact/">Contact</a>
                     </li>
                 </ul>
       </div>
@@ -100,21 +126,60 @@
           <div role="main">
             <div class="section">
               
-                <p>Roses are <span style="color:red">red</span><br />
-Roses are <span style="color:blue;">blue</span>  </p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-</code></pre></div>
-</td></tr></table>
-<p>== This ==<br />
-  --this--<br />
-  ++added++<br />
-<del>one</del>
-  ==</p>
-<div class="highlight"><pre><span></span><code>    |First Header      | Second Header    | Third Header
-    |:---------------- | :---------------:| ---------------:
-    |Content Cell      | Content Cell     | Content Cell
-    |Content Cell      | Content Cell     | Content Cell
-</code></pre></div>
+                <h1 id="faq">FAQ</h1>
+<!-- blank line -->
+<ul>
+<li>
+<p><strong>Why my job is not running?</strong>   </p>
+<ul>
+<li>Use the next command to see the reason:<br />
+      $ scontrol show job <job-id></li>
+<li>The reason can be:  <ul>
+<li>priority =&gt; resources being reserved for higher priority job.</li>
+<li>resources =&gt; required resources are in user.</li>
+<li>dependency =&gt; job dependencies not yet satisfied.</li>
+<li>reservation =&gt; waiting for advanced reservation.</li>
+<li>AssociationJobLimit =&gt; user account job limit reached.</li>
+<li>AssociationResourceLimit =&gt; user account resource limit reached.</li>
+<li>AssociationTimeLimit =&gt; user account time limit reached.</li>
+<li>QOSJobLimit =&gt; Quality Of Service (QOS) job limit reached.</li>
+<li>QOSResourceLimit =&gt; Quality Of Service (QOS) resource limit reached.</li>
+<li>QOSTimeLimit =&gt; Quality Of Service (QOS) time limit reached.</li>
+</ul>
+</li>
+<li>Example:
+ <img alt="Screenshot" src="../img/job_not_run_reason.png" /></li>
+</ul>
+</li>
+</ul>
+<!-- blank line -->
+
+<ul>
+<li><strong>Why my job was killed?</strong>  <ul>
+<li>Use  #SBATCH --requeue option in your Batch File.  </li>
+</ul>
+</li>
+</ul>
+<!-- blank line -->
+
+<ul>
+<li><strong>Why sstat doesn't show the used resources of my completed job?</strong><ul>
+<li>sstat command need be used for the <em>running</em> job_id.</li>
+<li>for completed jobs use sacct command.</li>
+</ul>
+</li>
+</ul>
+<!-- blank line -->
+
+<ul>
+<li><strong>Why sacct doesn't show the used resources of my running job?</strong>  <ul>
+<li>sacct command need be used for the <em>completed</em> job_id.</li>
+<li>for the running jobs use sstat command.</li>
+<li>sacct  command need to run on the master node only, so to execute it it need be written in the script.  </li>
+</ul>
+</li>
+</ul>
+<!-- blank line -->
               
             </div>
           </div>
@@ -122,8 +187,10 @@ Roses are <span style="color:blue;">blue</span>  </p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../contact/" class="btn btn-neutral float-right" title="Contact">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../commands/" class="btn btn-neutral" title="Commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../conda_env/" class="btn btn-neutral" title="Conda Environment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -149,8 +216,10 @@ Roses are <span style="color:blue;">blue</span>  </p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../commands/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../conda_env/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../contact/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

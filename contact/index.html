@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Commands - HPC Slurm (Rev.0)</title>
+  <title>Contact - HPC Slurm (Rev.0)</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Commands";
-    var mkdocs_page_input_path = "commands.md";
+    var mkdocs_page_name = "Contact";
+    var mkdocs_page_input_path = "contact.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -64,16 +64,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../srun/">SRun</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Commands</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#jobs-statusresources-reports">Job's Status/Resources Reports</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#information-about-computer-nodes">Information about computer nodes:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#jobs-priority">Job's priority</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../commands/">Commands</a>
                     </li>
                 </ul>
                 <ul>
@@ -96,8 +88,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../contact/">Contact</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Contact</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -121,7 +115,7 @@
     
       
     
-    <li>Commands</li>
+    <li>Contact</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -132,40 +126,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="commands">Commands</h1>
-<p>For the summary of Slurm commands please see the link - <a href="https://slurm.schedmd.com/pdfs/summary.pdf">summary</a>.</p>
-<h2 id="jobs-statusresources-reports">Job's Status/Resources Reports</h2>
-<p>Status:</p>
-<div class="highlight"><pre><span></span><code>$ squeue -l -u$USER&lt;/span&gt;
-</code></pre></div>
-<p>Details:  </p>
-<div class="highlight"><pre><span></span><code>$ scontrol show job &lt;job-id&gt;
-</code></pre></div>
-<p>The maximal used memory for the <em>completed</em> job:  </p>
-<div class="highlight"><pre><span></span><code>$ sacct -j &lt;job-id&gt; --format=MaxRSS
-</code></pre></div>
-<p>Format options:  </p>
-<div class="highlight"><pre><span></span><code>$ sacct -e
-</code></pre></div>
-<p>Maximal used memory for the <em>running</em> job:</p>
-<div class="highlight"><pre><span></span><code>$ sstat -j &lt;job-id&gt; --format=MaxRSS
-</code></pre></div>
-<p>When the job will start:</p>
-<div class="highlight"><pre><span></span><code>$ squeue --start
-</code></pre></div>
-<p>Report status every 60 seconds:</p>
-<div class="highlight"><pre><span></span><code>$ squeue -i60
-</code></pre></div>
-<p>You can use the script "jobinfo" from GitHub <a href="https://github.com/birc-aeh/slurm-utils">slurm-util</a> site for monitoring your job:</p>
-<div class="highlight"><pre><span></span><code>$ jobinfo &lt;job-id&gt;
-</code></pre></div>
-<h2 id="information-about-computer-nodes">Information about computer nodes:</h2>
-<div class="highlight"><pre><span></span><code>$ sinfo
-</code></pre></div>
-<p>More details:</p>
-<div class="highlight"><pre><span></span><code>$ sinfo -Nel
-</code></pre></div>
-<h2 id="jobs-priority">Job's priority</h2>
+                <h1 id="contact">Contact</h1>
+<p>If you have any questions or problems with Slurm, please, contact:</p>
+<ul>
+<li>
+<p>Inga Paster - Slurm DevOps Engineer:</p>
+<p>052-8823-105<br />
+  61156<br />
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#97;&#115;&#116;&#101;&#114;&#64;&#98;&#103;&#117;&#46;&#97;&#99;&#46;&#105;&#108;">&#112;&#97;&#115;&#116;&#101;&#114;&#64;&#98;&#103;&#117;&#46;&#97;&#99;&#46;&#105;&#108;</a>  </p>
+</li>
+</ul>
               
             </div>
           </div>
@@ -173,10 +143,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../jupyter/" class="btn btn-neutral float-right" title="Jupyter">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../srun/" class="btn btn-neutral" title="SRun"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../faq/" class="btn btn-neutral" title="FAQ"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -202,10 +170,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../srun/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../faq/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../jupyter/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

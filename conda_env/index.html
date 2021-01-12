@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Commands - HPC Slurm (Rev.0)</title>
+  <title>Conda Environment - HPC Slurm (Rev.0)</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Commands";
-    var mkdocs_page_input_path = "commands.md";
+    var mkdocs_page_name = "Conda Environment";
+    var mkdocs_page_input_path = "conda_env.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -64,16 +64,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../srun/">SRun</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Commands</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#jobs-statusresources-reports">Job's Status/Resources Reports</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#information-about-computer-nodes">Information about computer nodes:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#jobs-priority">Job's priority</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../commands/">Commands</a>
                     </li>
                 </ul>
                 <ul>
@@ -88,8 +80,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../matlab/">Matlab</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../conda_env/">Conda Environment</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Conda Environment</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -121,7 +115,7 @@
     
       
     
-    <li>Commands</li>
+    <li>Conda Environment</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -132,40 +126,47 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="commands">Commands</h1>
-<p>For the summary of Slurm commands please see the link - <a href="https://slurm.schedmd.com/pdfs/summary.pdf">summary</a>.</p>
-<h2 id="jobs-statusresources-reports">Job's Status/Resources Reports</h2>
-<p>Status:</p>
-<div class="highlight"><pre><span></span><code>$ squeue -l -u$USER&lt;/span&gt;
+                <h1 id="conda-environment">Conda Environment</h1>
+<p>Check that conda is installed</p>
+<div class="highlight"><pre><span></span><code>$ conda -V
 </code></pre></div>
-<p>Details:  </p>
-<div class="highlight"><pre><span></span><code>$ scontrol show job &lt;job-id&gt;
+<p>Check that conda is up to date</p>
+<div class="highlight"><pre><span></span><code>  $ conda update conda
 </code></pre></div>
-<p>The maximal used memory for the <em>completed</em> job:  </p>
-<div class="highlight"><pre><span></span><code>$ sacct -j &lt;job-id&gt; --format=MaxRSS
+<p>Create virtual environment:</p>
+<div class="highlight"><pre><span></span><code>$ conda create -n &lt;env-name&gt;
 </code></pre></div>
-<p>Format options:  </p>
-<div class="highlight"><pre><span></span><code>$ sacct -e
+<p>Create virtual environment with specific package:</p>
+<div class="highlight"><pre><span></span><code>$ conda create -n &lt;env-name&gt; scipy
 </code></pre></div>
-<p>Maximal used memory for the <em>running</em> job:</p>
-<div class="highlight"><pre><span></span><code>$ sstat -j &lt;job-id&gt; --format=MaxRSS
+<p>Create virtual environment with specific package version:</p>
+<div class="highlight"><pre><span></span><code>$ conda create -n &lt;env-name&gt; python=3.7
 </code></pre></div>
-<p>When the job will start:</p>
-<div class="highlight"><pre><span></span><code>$ squeue --start
+<p>View your environment list:</p>
+<div class="highlight"><pre><span></span><code>$ conda env list
 </code></pre></div>
-<p>Report status every 60 seconds:</p>
-<div class="highlight"><pre><span></span><code>$ squeue -i60
+<p>Activate your environment:</p>
+<div class="highlight"><pre><span></span><code>$ conda activate &lt;env-name&gt;
 </code></pre></div>
-<p>You can use the script "jobinfo" from GitHub <a href="https://github.com/birc-aeh/slurm-utils">slurm-util</a> site for monitoring your job:</p>
-<div class="highlight"><pre><span></span><code>$ jobinfo &lt;job-id&gt;
+<p>Deactivate your environment:</p>
+<div class="highlight"><pre><span></span><code>$ conda deactivate
 </code></pre></div>
-<h2 id="information-about-computer-nodes">Information about computer nodes:</h2>
-<div class="highlight"><pre><span></span><code>$ sinfo
+<p>Install tensorflow-gpu:</p>
+<div class="highlight"><pre><span></span><code>$ conda activate &lt;env-name&gt;
+$ conda install -c anaconda tensorflow-gpu
 </code></pre></div>
-<p>More details:</p>
-<div class="highlight"><pre><span></span><code>$ sinfo -Nel
+<p>List of packages installed in activated environment:</p>
+<div class="highlight"><pre><span></span><code>$ conda list
 </code></pre></div>
-<h2 id="jobs-priority">Job's priority</h2>
+<p>List of packages installed in not activated environment:</p>
+<div class="highlight"><pre><span></span><code>$ conda list -n &lt;env-name&gt;
+</code></pre></div>
+<p>Compare conda environments:</p>
+<div class="highlight"><pre><span></span><code>$ conda list -n &lt;env-name-1&gt; --export &gt; &lt;file-name-1&gt;
+$ conda list -n &lt;env-name-2&gt; --export &gt; &lt;file-name-2&gt;
+$ diff &lt;file-name-1&gt; &lt;file-name-2&gt;
+</code></pre></div>
+<p>Please deactivate your environment before batch file submission.</p>
               
             </div>
           </div>
@@ -173,10 +174,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../jupyter/" class="btn btn-neutral float-right" title="Jupyter">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../faq/" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../srun/" class="btn btn-neutral" title="SRun"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../matlab/" class="btn btn-neutral" title="Matlab"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -202,10 +203,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../srun/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../matlab/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../jupyter/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
