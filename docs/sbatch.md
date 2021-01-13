@@ -1,16 +1,17 @@
-# SBatch
-  The job flags are used with <span style="color:purple">#SBATCH</span> command.  The syntax for the SLURM directive in a script is  "<span style="color:purple">#SBATCH</span> < flag >".  Some of the flags are used with the srun and salloc commands, as well as the fisbatch wrapper script for interactive jobs. Sbatch configuration parameters must start with #SBATCH and must precede any other command.
+# SBATCH
+  The syntax for the SLURM directive in a script is  "<span style="color:purple">#SBATCH</span> < flag >".  Some of the flags are used with the srun and salloc commands, as well as the fisbatch wrapper script for interactive jobs. Sbatch configuration parameters must start with #SBATCH and must precede any other command.
   <span style="color:purple">#SBATCH</span> - Bash "sees" this as comment.<br/>
-  <span style="color:purple">#SBATCH</span> - Slurm "takes" this as parameter. Use ## to close <span style="color:purple">#SBATCH</span> as comment.<br/>
+  <span style="color:purple">#SBATCH</span> - Slurm "takes" this as parameter.   
+  Use ## to close <span style="color:purple">#SBATCH</span> as comment.<br/>
 
 
-## Example of SBatch Submition Script (Batch File):
+### Example of SBatch Submition Script (Batch File):
 
-  **NOTE**: the term "Batch File" is used throughout this documentation to mean an executable file that you create and submit to the job scheduler to run on a node or collection of nodes.  This script will include a list of Slurm directives (or commands) to tell the job scheduler what to do.  Details and options for these scripts are below.
+  **NOTE**: the term "Batch File" is used throughout this documentation to mean an executable file that you create and submit to the job scheduler to run on a node or collection of nodes.  This script will include a list of Slurm directives (or commands) to tell the job scheduler what to do.  
 
   ![Screenshot](img/sbatch_example.png)
 
-## Additional Flags' Description
+### Additional Flags' Description
 
 | **Flag** <div style="width:350px">property</div> | **Description** <div style="width:100px">property</div> | **Default** |
 |:----------------|:-------------|:---------------|
@@ -56,38 +57,46 @@
 <br/>
 
 
-## Submit Job
+### Submit Job
 
-    $ sbatch ./<sbatch-file-name>
+    $ sbatch <path-to-file>/<sbatch-file-name>
 
 If you have QOS privileges, you can use:
 
-    $ sbatch --qos=<user-name> ./<sbatch-file-name>
+    $ sbatch --qos=<priority-user-name> <path-to-file>/<sbatch-file-name>
 
 After job submission, Slurm gives the JobID, to see it use:
 
     $ ls -lrt
 
-## Cancel Job
+### Cancel Job
+Cancel the specific job:
 
     $ scancel <job-id>
 or
 
     $ scancel --name <job-name>  
 
-For pending jobs pleas use:
+Cancel all jobs of the user:
+
+    $ scancel -u<user-name>
+    or
+    $ scancel -u$USER
+
+
+Cancel pending jobs of the user:
 
     $ scancel -t PENDING -u <user-name>
 
 
-## View Job ID and it's Status
+### View Job ID and it's Status
 
     $ squeue -l -u$USER  
 or  
 
     $ squeue -l -u<user-name>  
 
-For description of codes of job state please use:
+For codes of job state description please use:
 
     $ man squeue
 

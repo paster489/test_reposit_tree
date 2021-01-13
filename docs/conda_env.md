@@ -37,6 +37,10 @@ Install tensorflow-gpu:
     $ conda activate <env-name>
     $ conda install -c anaconda tensorflow-gpu
 
+Install ipykernel:
+
+    $ python -m ipykernel install --user --name <env-name> --display-name "<env-name-to-display>"
+
 List of packages installed in activated environment:
 
     $ conda list
