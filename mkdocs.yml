@@ -1,9 +1,9 @@
-site_name: HPC Slurm (Rev.0)
+site_name: BGU HPC Slurm Cluster (Rev.0)
 nav:
         - Overview: index.md
-        - Connection to HPC Slurm: get_started.md
-        - SBatch: sbatch.md
-        - SRun: srun.md
+        - Connection to HPC Slurm: connection.md
+        - SBATCH: sbatch.md
+        - SRUN: srun.md
         - Commands: commands.md
         - Jupyter: jupyter.md
         - pyCharm: pyCharm.md
@@ -42,3 +42,4 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist
   - pymdownx.tilde
+  - attr_list
