@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Jupyter - HPC Slurm (Rev.0)</title>
+  <title>Jupyter - BGU HPC Slurm Cluster (Rev.0)</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -39,7 +39,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> HPC Slurm (Rev.0)</a>
+        <a href=".." class="icon icon-home"> BGU HPC Slurm Cluster (Rev.0)</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -53,15 +53,15 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../get_started/">Connection to HPC Slurm</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../connection/">Connection to HPC Slurm</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sbatch/">SBatch</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../sbatch/">SBATCH</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../srun/">SRun</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../srun/">SRUN</a>
                     </li>
                 </ul>
                 <ul>
@@ -71,6 +71,12 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Jupyter</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instaltion">Instaltion</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#batch-file-submission">Batch File Submission</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#url-for-jupyter-web-access">URL for Jupyter web access</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -103,7 +109,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">HPC Slurm (Rev.0)</a>
+        <a href="..">BGU HPC Slurm Cluster (Rev.0)</a>
       </nav>
 
       
@@ -127,7 +133,17 @@
             <div class="section">
               
                 <h1 id="jupyter">Jupyter</h1>
-<p><ins>TBD</ins></p>
+<h3 id="instaltion">Instaltion</h3>
+<p>Check that <span style="color:red">python</span>, <span style="color:red">ipython</span>,
+<span style="color:red">ipykernel</span> (interactive python shell used for Jupyter kernel) and <span style="color:red">jupyterlab</span> packages are installed in your environment (see Conda Environment section for details about the installation).</p>
+<h3 id="batch-file-submission">Batch File Submission</h3>
+<p>Submit Batch File with the next executions in the end of the file:     </p>
+<div class="highlight"><pre><span></span><code>  module load anaconda
+  source activate &lt;env-name&gt; running the job
+  jupyter lab
+</code></pre></div>
+<h3 id="url-for-jupyter-web-access">URL for Jupyter web access</h3>
+<p>After the job was successfully submitted and has the status of running, wait for 1 minute and then open output log file of the job and copy 2<sup>nd</sup>  token: <code>https://132/72.x.x.</code> and paste it into your web browser’s address bar. In the open Jupyter notebook check that the correct environment name is chosen (upper right corner).</p>
               
             </div>
           </div>

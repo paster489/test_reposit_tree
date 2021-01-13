@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>FAQ - HPC Slurm (Rev.0)</title>
+  <title>FAQ - BGU HPC Slurm Cluster (Rev.0)</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -39,7 +39,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> HPC Slurm (Rev.0)</a>
+        <a href=".." class="icon icon-home"> BGU HPC Slurm Cluster (Rev.0)</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -53,15 +53,15 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../get_started/">Connection to HPC Slurm</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../connection/">Connection to HPC Slurm</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sbatch/">SBatch</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../sbatch/">SBATCH</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../srun/">SRun</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../srun/">SRUN</a>
                     </li>
                 </ul>
                 <ul>
@@ -87,6 +87,18 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">FAQ</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#why-my-job-is-not-running">Why my job is not running?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-my-job-was-killed">Why my job was killed?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-sstat-doesnt-work">Why sstat doesn't work?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-sacct-doesnt-work">Why sacct doesn't work?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-to-choose-ntasks-or-array">What to choose --ntasks or --array?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-know-if-i-am-working-with-gpu-or-cpu">How to know if I am working with GPU or CPU?</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -103,7 +115,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">HPC Slurm (Rev.0)</a>
+        <a href="..">BGU HPC Slurm Cluster (Rev.0)</a>
       </nav>
 
       
@@ -128,13 +140,13 @@
               
                 <h1 id="faq">FAQ</h1>
 <!-- blank line -->
+
+<h3 id="why-my-job-is-not-running"><strong>Why my job is not running?</strong></h3>
+<p>Use the next command to see the reason:  </p>
+<div class="highlight"><pre><span></span><code>$ scontrol show job &lt;job-id&gt;
+</code></pre></div>
+<p>The reason can be:  </p>
 <ul>
-<li>
-<p><strong>Why my job is not running?</strong>   </p>
-<ul>
-<li>Use the next command to see the reason:<br />
-      $ scontrol show job <job-id></li>
-<li>The reason can be:  <ul>
 <li>priority =&gt; resources being reserved for higher priority job.</li>
 <li>resources =&gt; required resources are in user.</li>
 <li>dependency =&gt; job dependencies not yet satisfied.</li>
@@ -145,41 +157,47 @@
 <li>QOSJobLimit =&gt; Quality Of Service (QOS) job limit reached.</li>
 <li>QOSResourceLimit =&gt; Quality Of Service (QOS) resource limit reached.</li>
 <li>QOSTimeLimit =&gt; Quality Of Service (QOS) time limit reached.</li>
-</ul>
-</li>
-<li>Example:
- <img alt="Screenshot" src="../img/job_not_run_reason.png" /></li>
-</ul>
-</li>
+<li>Example:<br />
+<img alt="Screenshot" src="../img/job_not_run_reason_1.png" />
+  <img alt="Screenshot" src="../img/job_not_run_reason_2.png" /></li>
 </ul>
 <!-- blank line -->
 
-<ul>
-<li><strong>Why my job was killed?</strong>  <ul>
-<li>Use  #SBATCH --requeue option in your Batch File.  </li>
-</ul>
-</li>
-</ul>
+<h3 id="why-my-job-was-killed"><strong>Why my job was killed?</strong></h3>
+<p>Use the SBatch Flag below in your Batch File.</p>
+<div class="highlight"><pre><span></span><code>#SBATCH --requeue
+</code></pre></div>
 <!-- blank line -->
 
+<h3 id="why-sstat-doesnt-work"><strong>Why sstat doesn't work?</strong></h3>
 <ul>
-<li><strong>Why sstat doesn't show the used resources of my completed job?</strong><ul>
 <li>sstat command need be used for the <em>running</em> job_id.</li>
 <li>for completed jobs use sacct command.</li>
 </ul>
-</li>
-</ul>
 <!-- blank line -->
 
+<h3 id="why-sacct-doesnt-work"><strong>Why sacct doesn't work?</strong></h3>
 <ul>
-<li><strong>Why sacct doesn't show the used resources of my running job?</strong>  <ul>
 <li>sacct command need be used for the <em>completed</em> job_id.</li>
 <li>for the running jobs use sstat command.</li>
 <li>sacct  command need to run on the master node only, so to execute it it need be written in the script.  </li>
 </ul>
-</li>
-</ul>
 <!-- blank line -->
+
+<h3 id="what-to-choose-ntasks-or-array"><strong>What to choose --ntasks or --array?</strong></h3>
+<p><img alt="Screenshot" src="../img/n_task_array_example.png" /></p>
+<!-- blank line -->
+
+<p>Let's review two schemes: in the first one we are defining one job with 8 tasks: "srun echo hello".
+In the second scheme: we reserve in Slurm one job with one task and array = 1-8. So what is the difference between these two options?  </p>
+<!-- blank line -->
+
+<p>In the Scheme 1: all the tasks will be scheduled at the <em>same time</em>.  So it will need 8 CPUS to become available at the same time. This is typically only used with parallel jobs where processes need to communicate with each others, for instance using an Message Passing Interface library.  </p>
+<!-- blank line -->
+
+<p>In the Scheme 2: the 8 tasks will be scheduled <em>independently</em> one of another. If 8 CPUs become available at once, they will all start at the same time, but if only 4 CPUs become available at first, 4 tasks will run, the other 4 remaining pending.  It is typically used in the case of embarrassingly parallel jobs, where the processes do not need to communicate or synchronize, like for applying the same program to a list of files.  </p>
+<h3 id="how-to-know-if-i-am-working-with-gpu-or-cpu"><strong>How to know if I am working with GPU or CPU?</strong></h3>
+<p>In order to test if your GPU is in use and working please run the next <a href="http://gpu.bgu.ac.il/examples/">scrip</a> from BGU ISE web site.</p>
               
             </div>
           </div>

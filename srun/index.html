@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>SRun - HPC Slurm (Rev.0)</title>
+  <title>SRUN - BGU HPC Slurm Cluster (Rev.0)</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,7 +19,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "SRun";
+    var mkdocs_page_name = "SRUN";
     var mkdocs_page_input_path = "srun.md";
     var mkdocs_page_url = null;
   </script>
@@ -39,7 +39,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> HPC Slurm (Rev.0)</a>
+        <a href=".." class="icon icon-home"> BGU HPC Slurm Cluster (Rev.0)</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -53,15 +53,15 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../get_started/">Connection to HPC Slurm</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../connection/">Connection to HPC Slurm</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sbatch/">SBatch</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../sbatch/">SBATCH</a>
                     </li>
                 </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">SRun</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">SRUN</a>
     <ul class="current">
     </ul>
                     </li>
@@ -103,7 +103,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">HPC Slurm (Rev.0)</a>
+        <a href="..">BGU HPC Slurm Cluster (Rev.0)</a>
       </nav>
 
       
@@ -115,7 +115,7 @@
     
       
     
-    <li>SRun</li>
+    <li>SRUN</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -126,8 +126,15 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="srun">SRun</h1>
-<p><ins>TBD</ins></p>
+                <h1 id="srun">SRUN</h1>
+<p>Slurm jobs are normally batch jobs in the sense that they are run unattended. If I need iterative bash session you can use srun option.  </p>
+<div class="highlight"><pre><span></span><code>$ srun --mem=32G --cpus-per-task=6 -n 4 &lt;command&gt;
+or
+$ srun --mem=32G --cpus-per-task=6 -n 4 &lt;path-to-file&gt;/&lt;file-name&gt;
+</code></pre></div>
+<p>The next brief explanation of srun evaluation was taken from Slurm home page:<br />
+<img alt="Screenshot" src="../img/srun.png" /></p>
+<p>See the next <a href="https://slurm.schedmd.com/srun.html">link</a> about srun details.</p>
               
             </div>
           </div>
@@ -138,7 +145,7 @@
         <a href="../commands/" class="btn btn-neutral float-right" title="Commands">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../sbatch/" class="btn btn-neutral" title="SBatch"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sbatch/" class="btn btn-neutral" title="SBATCH"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
